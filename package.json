@@ -1,0 +1,19 @@
+{
+  "name": "laisi",
+  "version": "1.0.0",
+  "description": "Simple command line app",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youngestdev/favico-generator.git"
+  },
+  "keywords": [],
+  "author": "Abdulazeez Abdulazeez Adeshina <laisibizness@gmail.com> (http://twitter.com/kvng_zeez)",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^10.0.3"
+  },
+  "bin": {
+    "laisi": "./index.js"
+  }
+}
