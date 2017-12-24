@@ -1,0 +1,100 @@
+# Preamble.
+What is a command line app ?
+	A command line app is an app that is run from the console(terminal).
+Hi, to do this, we will use **Yargs**, a NodeJs module. We can also use commander, inquirer etc.
+
+# Introduction.
+So today, we are going to build a simple command line app that echoes a message supplied to the apps default argument. We are going to use **Yargs** to accomplish it.
+
+### Requirements
+Nodejs and Npm.
+
+### Prerequisities.
+To start and fully understand this tutorial, you need to have the knowledge of :
+1. Javascript (ES6)
+2. NodeJS
+
+# Setting up our project.
+Lets start this tutorial now. So i'll name the command line app name **laisi**. We'll create a folder named **laisi** and initialize it with npm.
+``` bash
+mkdir laisi && cd laisi && npm init -y
+```fdddd
+Edit your package.json 
+```javascript
+"name": "laisi",
+  "version": "1.0.0",
+  "description": "Simple command line app",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Abdulazeez Abdulazeez Adeshina <laisibizness@gmail.com> (http://twitter.com/kvng_zeez)",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^10.0.3"
+  }
+  ```
+  
+  # Writing our app.
+  We'll create a new file **index.js** and add this to it:
+```javascript
+#!/usr/bin/env node
+```
+The code above tells the app that its a command line app such that it can be run from any angle. :)
+After that, we require **yargs** and set it up.
+```javascript
+const argv = require('yargs')
+    .usage('Usage: $0 option message \n e.g $0 -s message')
+    .alias('-s', 'Say message')
+    .nargs('s', 1)
+    .describe('s', 'Argument that takes message to be echoed.')
+    .demandOption(['s'])
+    .help('h')
+    .epilog('Copyright Abdul 2017')
+    .argv;
+```
+
+## Code Explanation
+1. The **.usage** is responsible for displaying the instructions on how to make use of our app. The $0 there represents the name of the file where our code is stored i.e index.js.
+2. The **.alias** defines the default argument **-s** which our messages will be supplied upon. 
+3. The **.nargs** simply means the number of arguments **-s** can take and its set to 1.
+4. The **.describe** further explains the **-s** argument.
+5. The **.demandOption** makes sure the argument is supplied.
+6. The **.help** displays the option again.
+
+# Logging out message passed.
+To log the message supplied to the argument to the console, we'll add this to the end of our index.js
+```javascript
+console.log(argv.s);
+```
+
+# Making it fully command line.
+To make our app fully command line, we'll make our index.js executable with the command: 
+```bash
+chmod +x index.js
+```. 
+and add this to your package.json
+```javascript
+"bin": {
+    "laisi": "./index.js"
+  }
+ ```
+ 
+After that, we'll link our app to make it available globally
+```bash
+sudo npm link
+```
+Upon using the command above, we have our app as a command line. To verify our process, call our app from the command line 
+```bash
+laisi
+```
+and you should get this screen.
+![](https://cdn.scotch.io/58269/vO32kaXSHmb1Lei8kUQQ_Screenshot%20at%202017-12-23%2021-14-37.png).
+After that, we can now install our app with the command :
+```bash
+sudo npm i -g
+```
+
+# Conclusion
+We have come to the end of  our tutorial. Feel free to drop comments once you are stuck.
+
+# La Fin
+
