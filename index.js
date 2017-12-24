@@ -3,7 +3,7 @@
 const argv = require('yargs')
 .usage('Usage: $0 option message \n e.g $0 -s message')
 .alias('s', 'message')
-.nargs('f', 1)
+.nargs('s', 1)
 .describe('s', 'Say message')
 .demandOption(['s'])
 .help('h')
