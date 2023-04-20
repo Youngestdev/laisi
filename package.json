@@ -11,7 +11,7 @@
   "author": "Abdulazeez Abdulazeez Adeshina <laisibizness@gmail.com> (http://twitter.com/kvng_zeez)",
   "license": "MIT",
   "dependencies": {
-    "yargs": "^10.0.3"
+    "yargs": "^17.7.1"
   },
   "bin": {
     "laisi": "./index.js"
